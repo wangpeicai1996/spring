@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.7.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.sunline.cn/sh/schema/rpc http://www.sunline.cn/sh/schema/rpc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
+
+    <context:component-scan base-package="org.example.demo"/>
+    <bean id="user1" class="org.example.demo.User">
+        <property name="name" value="张三"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean name="user4" class="org.example.demo.User">
+        <property name="name" value="张三1"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean class="org.example.demo.User">
+        <property name="name" value="张三2"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean class="org.example.demo.UserSon" parent="user1">
+        <property name="userson" value="user子类"/>
+    </bean>
+</beans>
