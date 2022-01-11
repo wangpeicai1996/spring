@@ -1,6 +1,8 @@
 package org.example.demo;
 
-public class User {
+import org.springframework.beans.factory.InitializingBean;
+
+public class User implements InitializingBean {
 
     private String name;
     private int age;
@@ -19,5 +21,10 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("属性设置完成之后，自定义初始化方法");
     }
 }

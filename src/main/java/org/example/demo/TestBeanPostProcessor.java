@@ -13,7 +13,7 @@ public class TestBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("postProcessBeforeInitialization后置处理,beanName="+beanName);
+        System.out.println("postProcessAfterInitialization后置处理,beanName="+beanName);
         return null;
     }
 }
