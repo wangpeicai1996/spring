@@ -1,8 +1,6 @@
 package org.example;
 
-import org.example.demo.Cust;
-import org.example.demo.TestBeanPostProcessor;
-import org.example.demo.User;
+import org.example.demo.*;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -16,7 +14,7 @@ import org.springframework.expression.TypedValue;
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //手动注册bean到容器中
         System.out.println("Hello World!");
         AbstractRefreshableApplicationContext context = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
@@ -68,6 +66,13 @@ public class App {
         for (String str : difinitions) {
             System.out.println("bean定义："+str);
         }
+
+        MyFactoryBean orderFactoryBean = (MyFactoryBean) context.getBean("&myFactoryBean");
+        Order order = orderFactoryBean.getObject();
+        Order order2 = orderFactoryBean.getObject();
+        System.out.println(order);
+        System.out.println(order2);
+        System.out.println(order.getUserName());
 
     }
 }
